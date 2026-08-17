@@ -22,7 +22,8 @@ perguntas = [
     "por que",
     "pq",
     "oq",
-    "o que",
+    "o"
+    "que",
     "qual",
     "quem"
 ]
