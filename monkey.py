@@ -1,6 +1,6 @@
 import random
 import string
-from words import saudacoes, saudacoes_, saudacoes_e, perguntas
+from words import saudacoes, saudacoes_, saudacoes_e, perguntas, criações, artigos, sers
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -19,6 +19,16 @@ while True:
         saudacao_ = random.choice(saudacoes_)
         print(f'MONKEY: {saudacao}, {saudacao_}!')
         continue
+    elif any (p in perguntas for p in palavras) and (p in sers for p in palavras) and (p in perguntas for p in palavras):
+        headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'
+        }
+        termo = ' '.join(p for p in palavras if p not in perguntas and p not in sers and p not in artigos)
+        response = requests.get(f'https://pt.wikipedia.org/wiki/{termo.replace(" ", "_")}', headers=headers)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        todo_texto = []
+        for p in soup.find_all('p'):
+            print(p.get_text())
     else:
         headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'

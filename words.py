@@ -26,3 +26,38 @@ perguntas = [
     "qual",
     "quem"
 ]
+
+sers = [
+    "é",
+    "são",
+    "era",
+    "foi"
+]
+
+criações = [
+    "inventou",
+    "criou"
+]
+
+artigos = [
+    "o",
+    "os",
+    "a",
+    "as",
+    "um",
+    "uma",
+    "uns",
+    "umas"
+]
+
+for pergunta in perguntas:
+    pass
+
+for criação in criações:
+    pass
+
+for artigo in artigos:
+    pass
+
+"quem inventou o avião?"
+f"{pergunta} {criação} {artigo}"
