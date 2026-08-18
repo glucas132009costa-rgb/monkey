@@ -1,10 +1,16 @@
 import random
 import string
-from words import saudacoes, saudacoes_, saudacoes_e, perguntas, criações, artigos, sers
+from words import saudacoes_, saudacoes_e, perguntas, criações, artigos, sers, frases_de_ajuda, palavroes, resp_palavrao
 import requests
 from bs4 import BeautifulSoup
 import os
 from collections import Counter
+from datetime import date, datetime
+
+hora_atual = datetime.now().hour
+hoje = date.today()
+dia = hoje.day
+mes = hoje.month
 
 os.system('cls')
 while True:
@@ -13,11 +19,17 @@ while True:
     palavras = vc_clean.split()
     vc_no = [p for p in palavras if p != "monkey"]
     vc_no_monkey = ' '.join(vc_no)
-    if any (palavra in saudacoes or palavra in saudacoes_ or palavra in saudacoes_e for palavra in palavras):
-        saudacao = random.choice(saudacoes)
+    if any (saudacao_ in vc_clean or saudacao_e in vc_clean for saudacao_ in saudacoes_ for saudacao_e in saudacoes_e):
+        if 5 <= hora_atual < 12:
+            saudacao = "Bom dia"
+        elif 12 <= hora_atual < 19:
+            saudacao = "Boa tarde"
+        else:
+            saudacao = "Boa noite"
         saudacao_e = random.choice(saudacoes_e)
         saudacao_ = random.choice(saudacoes_)
-        print(f'MONKEY: {saudacao}, {saudacao_}!')
+        frase = random.choice(frases_de_ajuda)
+        print(f'MONKEY: {saudacao}, {saudacao_}! {frase}')
         continue
     elif any (p in perguntas for p in palavras) and (p in sers for p in palavras) and (p in perguntas for p in palavras):
         headers = {
@@ -29,6 +41,10 @@ while True:
         todo_texto = []
         for p in soup.find_all('p'):
             print(p.get_text())
+    elif any (palavrao in vc_clean for palavrao in palavroes):
+        resposta = random.choice(resp_palavrao)
+        print(f'MONKEY: {resposta}')
+        continue
     else:
         headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'
