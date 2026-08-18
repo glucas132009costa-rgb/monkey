@@ -6,6 +6,7 @@ saudacoes = [
     "bom dia",
     "boa tarde",
     "boa noite",
+    "fala ai",
 ]
 
 saudacoes_e = [
