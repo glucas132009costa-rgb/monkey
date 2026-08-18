@@ -15,5 +15,3 @@ for r in resultados:
     print(titulo.get_text() if titulo else None)
     print(link['href'] if link else None)
     print('---')
-    #Guimmel Apollo
-    import os
