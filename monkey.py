@@ -30,7 +30,7 @@ while True:
         saudacao_e = random.choice(saudacoes_e)
         saudacao_ = random.choice(saudacoes_)
         frase = random.choice(frases_de_ajuda)
-        print(f'MONKEY: {saudacao}, {saudacao_}! {frase}')
+        print(f'MONKEY: {saudacao}, {novo_usuario}, {saudacao_}! {frase}')
         continue
     elif any (pergunta in vc_clean for pergunta in perguntas) and (sers in vc_clean for pergunta in perguntas):
         headers = {
