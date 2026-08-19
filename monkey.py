@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import os
 from collections import Counter
 from datetime import date, datetime
+from login import novo_usuario
 
 hora_atual = datetime.now().hour
 hoje = date.today()
