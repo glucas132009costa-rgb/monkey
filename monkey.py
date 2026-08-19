@@ -16,7 +16,7 @@ mes = hoje.month
 os.system('cls')
 while True:
     vc = input('você: ')
-    vc_clean = vc.translate(str.maketrans('', '', string.punctuation))
+    vc_clean = (vc.translate(str.maketrans('', '', string.punctuation))).lower()
     palavras = vc_clean.split()
     vc_no = [p for p in palavras if p != "monkey"]
     vc_no_monkey = ' '.join(vc_no)
@@ -30,9 +30,9 @@ while True:
         saudacao_e = random.choice(saudacoes_e)
         saudacao_ = random.choice(saudacoes_)
         frase = random.choice(frases_de_ajuda)
-        print(f'MONKEY: {saudacao}, {novo_usuario}, {saudacao_}! {frase}')
+        print(f'MONKEY: {saudacao}, {novo_usuario.nome}, {saudacao_}! {frase}')
         continue
-    elif any (pergunta in vc_clean for pergunta in perguntas) and (sers in vc_clean for pergunta in perguntas):
+    elif any (pergunta in vc_clean for pergunta in perguntas) and any (sers in vc_clean for pergunta in perguntas):
         headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'
         }
