@@ -32,7 +32,7 @@ while True:
         frase = random.choice(frases_de_ajuda)
         print(f'MONKEY: {saudacao}, {saudacao_}! {frase}')
         continue
-    elif any (p in perguntas for p in palavras) and (p in sers for p in palavras) and (p in perguntas for p in palavras):
+    elif any (pergunta in vc_clean for pergunta in perguntas) and (sers in vc_clean for pergunta in perguntas):
         headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36'
         }
