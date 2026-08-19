@@ -83,14 +83,10 @@ def fazer_login():
                 Cursor = historico.cursor()
                 Cursor.execute("""
                 CREATE TABLE IF NOT EXISTS musicas (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    nome TEXT NOT NULL,
-                    artista TEXT NOT NULL,
-                    album TEXT NOT NULL,
-                    duracao TEXT NOT NULL,
-                    genero TEXT NOT NULL,
-                    ano INTEGER NOT NULL
-                )
+                                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                você TEXT NOT NULL,
+                                monkey TEXT NOT NULL
+                            )
                 """)
                 historico.commit()
                 time.sleep(3)
