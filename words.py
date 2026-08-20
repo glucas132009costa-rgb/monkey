@@ -92,7 +92,8 @@ frases_de_ajuda = [
     "Fala Logo o que você quer que Monkey está com pressa.",
     "Pergunta alguma coisa pra Monkey que hoje a Monkey está inspirado!",
     "E nessa loucura de dizer que eu não te quero, vou negando as...desculpe, eu nunca mais vou fazer isso fora do chuveiro. Foi mal.",
-    "Se quiser perguntar alguma coisa pergunta aí, pode perguntar, não tenha medo"
+    "Se quiser perguntar alguma coisa pergunta aí, pode perguntar, não tenha medo.",
+    ""
 ]
 
 resp_palavrao = [
