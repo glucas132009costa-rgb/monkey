@@ -82,7 +82,7 @@ def fazer_login():
                 global Cursor
                 Cursor = historico.cursor()
                 Cursor.execute("""
-                CREATE TABLE IF NOT EXISTS musicas (
+                CREATE TABLE IF NOT EXISTS cnvs (
                                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                                 você TEXT NOT NULL,
                                 monkey TEXT NOT NULL

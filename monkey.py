@@ -6,7 +6,14 @@ from bs4 import BeautifulSoup
 import os
 from collections import Counter
 from datetime import date, datetime
-from login import novo_usuario
+from login import novo_usuario, Cursor, historico
+
+def salvar_cnv(vc_cnv, monkey_cnv):
+    Cursor.execute("""
+    INSERT INTO cnvs (você, monkey)
+    VALUES (?, ?)
+    """, (vc_cnv, monkey_cnv))
+    historico.commit()
 
 hora_atual = datetime.now().hour
 hoje = date.today()
@@ -16,6 +23,7 @@ mes = hoje.month
 os.system('cls')
 while True:
     vc = input('você: ')
+    vc_cnv = f'você: {vc}'
     vc_clean = (vc.translate(str.maketrans('', '', string.punctuation))).lower()
     palavras = vc_clean.split()
     vc_no = [p for p in palavras if p != "monkey"]
@@ -30,7 +38,9 @@ while True:
         saudacao_e = random.choice(saudacoes_e)
         saudacao_ = random.choice(saudacoes_)
         frase = random.choice(frases_de_ajuda)
-        print(f'MONKEY: {saudacao}, {novo_usuario.nome}, {saudacao_}! {frase}')
+        monkey_cnv = f'MONKEY: {saudacao}, {novo_usuario.nome}, {saudacao_}! {frase}'
+        salvar_cnv(vc_cnv, monkey_cnv)
+        print(monkey_cnv)
         continue
     elif any (pergunta in vc_clean for pergunta in perguntas) and any (sers in vc_clean for pergunta in perguntas):
         headers = {
@@ -41,10 +51,13 @@ while True:
         soup = BeautifulSoup(response.text, 'html.parser')
         todo_texto = []
         for p in soup.find_all('p'):
+            salvar_cnv(vc_cnv, {p.get_text()})
             print(p.get_text())
     elif any (palavrao in vc_clean for palavrao in palavroes):
         resposta = random.choice(resp_palavrao)
-        print(f'MONKEY: {resposta}')
+        monkey_c = f'MONKEY: {resposta}'
+        salvar_cnv(vc_cnv, monkey_c)
+        print(monkey_c)
         continue
     else:
         headers = {
