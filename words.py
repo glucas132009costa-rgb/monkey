@@ -117,8 +117,44 @@ for pergunta in perguntas:
 for criação in criações:
     pass
 
+for ser in sers:
+    pass
+
 for artigo in artigos:
     pass
 
 "quem inventou o avião?"
 f"{pergunta} {criação} {artigo}"
+
+perguntas = [
+    "por que",
+    "pq",
+    "oq",
+    "o"
+    "que",
+    "qual",
+    "quem"
+]
+
+sers = [
+    "é",
+    "são",
+    "era",
+    "foi"
+]
+
+criações = [
+    "inventou",
+    "criou"
+]
+
+artigos = [
+    "o",
+    "os",
+    "a",
+    "as",
+    "um",
+    "uma",
+    "uns",
+    "umas"
+]
